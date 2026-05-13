@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   description:
     "A comprehensive collection of skills, rules, and workflows for modern AI coding assistants. 35+ skills, 57 UI Styles, production-ready workflows.",
   metadataBase: new URL("https://ag-kit.vercel.app/"),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/logo.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/images/logo.png", sizes: "1024x1024", type: "image/png" }],
+  },
   robots: {
     index: true,
     follow: true,
