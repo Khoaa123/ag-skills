@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/assets/logo.png" width="128" height="128" alt="TablePro">
+  <img src="/web/public/images/logo.png" width="128" height="128" alt="AGKIT">
 </p>
 
 <h1 align="center">AG KIT</h1>
