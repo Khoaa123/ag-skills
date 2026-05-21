@@ -1,6 +1,12 @@
-# AG Kit
+<p align="center">
+  <img src=".github/assets/logo.png" width="128" height="128" alt="TablePro">
+</p>
 
-> AI Agent templates with Skills, Agents, and Workflows — now with Coordinator Mode, Persistent Memory, and Context Compression
+<h1 align="center">AG KIT</h1>
+
+<p align="center">
+    AI Agent templates with Skills, Agents, and Workflows — now with Coordinator Mode, Persistent Memory, and Context Compression
+</p>
 
 <div  align="center">
     <a href="https://unikorn.vn/p/antigravity-kit?ref=unikorn" target="_blank"><img src="https://unikorn.vn/api/widgets/badge/antigravity-kit?theme=dark" alt="AG Kit - Nổi bật trên Unikorn.vn" style="width: 210px; height: 54px;" width="210" height="54" /></a>
