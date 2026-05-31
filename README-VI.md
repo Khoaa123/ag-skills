@@ -22,7 +22,7 @@
 
 ## ⚡ Bắt đầu nhanh
 
-Cài đặt và khởi tạo AG Kit để tích hợp thư mục cấu hình chuyên sâu `.agent/` trực tiếp vào dự án cục bộ của bạn.
+Cài đặt và khởi tạo AG Kit để tích hợp thư mục cấu hình chuyên sâu `.agents/` trực tiếp vào dự án cục bộ của bạn.
 
 ### Cách 1: Chạy trực tiếp (Khuyên dùng)
 
@@ -41,7 +41,7 @@ ag-kit init
 
 ## 🌍 Cấu hình Symlink Toàn cục (Global Shared Setup)
 
-Nếu bạn làm việc trên nhiều dự án khác nhau và muốn tránh sao chép thư mục `.agent/` lặp đi lặp lại, bạn có thể tập trung hóa cấu hình AG Kit và sử dụng các liên kết tượng trưng (Symbolic Links).
+Nếu bạn làm việc trên nhiều dự án khác nhau và muốn tránh sao chép thư mục `.agents/` lặp đi lặp lại, bạn có thể tập trung hóa cấu hình AG Kit và sử dụng các liên kết tượng trưng (Symbolic Links).
 
 1. **Cài đặt tập trung** (ví dụ: tạo thư mục toàn cục tại `~/.ag-kit`):
    ```bash
@@ -52,27 +52,27 @@ Nếu bạn làm việc trên nhiều dự án khác nhau và muốn tránh sao 
 2. **Liên kết cục bộ** từ thư mục gốc của dự án bạn đang làm việc:
    - **macOS / Linux:**
      ```bash
-     ln -s ~/.ag-kit/.agent .agent
+     ln -s ~/.ag-kit/.agents .agent
      ```
    - **Windows (CMD - Chạy với quyền Administrator):**
      ```cmd
-     mklink /D .agent "%USERPROFILE%\.ag-kit\.agent"
+     mklink /D .agents "%USERPROFILE%\.ag-kit\.agents"
      ```
    - **Windows (PowerShell - Chạy với quyền Administrator):**
      ```powershell
-     New-Item -ItemType SymbolicLink -Path ".agent" -Target "$env:USERPROFILE\.ag-kit\.agent"
+     New-Item -ItemType SymbolicLink -Path ".agents" -Target "$env:USERPROFILE\.ag-kit\.agents"
      ```
 
 ---
 
 ## ⚠️ Lưu ý Quan trọng về `.gitignore`
 
-Nếu bạn đang sử dụng các trình soạn thảo mã nguồn tích hợp sẵn AI (như **Cursor** hoặc **Windsurf**), việc thêm thư mục `.agent/` vào file `.gitignore` sẽ khiến trình phân tích ngôn ngữ của trình soạn thảo không thể lập chỉ mục (index) các workflow. Điều này sẽ làm mất tính năng gợi ý tự động (autocomplete) cho các lệnh slash (ví dụ: `/plan`, `/debug`).
+Nếu bạn đang sử dụng các trình soạn thảo mã nguồn tích hợp sẵn AI (như **Cursor** hoặc **Windsurf**), việc thêm thư mục `.agents/` vào file `.gitignore` sẽ khiến trình phân tích ngôn ngữ của trình soạn thảo không thể lập chỉ mục (index) các workflow. Điều này sẽ làm mất tính năng gợi ý tự động (autocomplete) cho các lệnh slash (ví dụ: `/plan`, `/debug`).
 
 ### Giải pháp tối ưu:
-Để thư mục `.agent/` vừa không bị đẩy lên Git remote, vừa giữ nguyên khả năng hỗ trợ đắc lực từ AI editor:
-1. Đảm bảo thư mục `.agent/` **KHÔNG** nằm trong file `.gitignore` của dự án.
-2. Thay vào đó, hãy thêm `.agent/` vào file loại trừ cục bộ của Git: `.git/info/exclude`
+Để thư mục `.agents/` vừa không bị đẩy lên Git remote, vừa giữ nguyên khả năng hỗ trợ đắc lực từ AI editor:
+1. Đảm bảo thư mục `.agents/` **KHÔNG** nằm trong file `.gitignore` của dự án.
+2. Thay vào đó, hãy thêm `.agents/` vào file loại trừ cục bộ của Git: `.git/info/exclude`
 
 ---
 

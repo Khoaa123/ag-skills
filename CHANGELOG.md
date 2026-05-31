@@ -9,6 +9,31 @@ Starting with `2026.5.13`, this project uses calendar versioning in `YYYY.M.D` f
 
 No unreleased changes.
 
+## [2026.5.31] - 2026-05-31
+
+> Skill accuracy pass. Audited and upgraded the `app-builder` skill plus 8 tech skills against verified 2026 facts (Next.js 16, React 19, Node 24 LTS, Tailwind v4, Express 5). Focus: kill version drift, internal contradictions, fabricated numbers, and stale date stamps.
+
+### Added
+- **Conflict Resolution in app-builder**: `project-detection.md` now has a priority order for ambiguous requests (platform > domain, head noun, then Socratic Gate) instead of naive keyword matching.
+- **Per-template version notes**: All 13 `app-builder` templates carry a `> Versions reflect the latest stable line verified 2026-05` note and use a "major line + latest stable" style instead of pinned exact numbers, so they age gracefully.
+
+### Changed
+- **app-builder architecture normalized to Layer-based**: Rewrote `scaffolding.md` (`src/{app,components,lib,actions,types}/` with `lib/dal.ts` + `lib/db.ts`) to match `nextjs-fullstack/TEMPLATE.md`, resolving a contradiction where the two files described different Next.js structures.
+- **All 13 app-builder templates refreshed** to 2026 best-practice structure: FastAPI domain/module layout, Express 5 + `app.ts`/`server.ts` split, electron-vite main/preload/renderer, CRXJS `manifest.config.ts`, Nuxt 4 `app/` srcDir, Astro 6 Content Layer API, Turborepo `tasks` key, `@inquirer/prompts`. Auth standardized to Auth.js v5 / Clerk; Node 24 LTS and React 19 across the board. `nuxt-app` translated from Vietnamese to English.
+- **nodejs-best-practices**: Rebaselined to Node 24 LTS (type-stripping default, test runner stable since Node 20).
+- **tailwind-patterns / frontend-design / nextjs-react-expert**: Softened or sourced unsupported "Nx faster" claims with official figures; stripped stale `(2025)` date stamps from titles and intros across the audited skills.
+
+### Fixed
+- **orchestrate.md plan-file convention**: Replaced 10 references to `docs/PLAN.md` with the house-standard `{task-slug}.md` in project root, aligning the workflow with `project-planner` and `app-builder`.
+- **Fabricated numbers removed**: Dropped invented metrics like "API routes (12 endpoints)", "Estimated Time: 15-20 minutes", "Fastify 2-3x faster", and "Oxide 10x faster"; replaced with functional descriptions or official benchmarks.
+- **nextjs-react-expert rule counts**: Reconciled the contradictory 57/58/59 totals to 58, acknowledged Section 9 (Cache Components), and aligned the `name` frontmatter with the folder.
+- **Broken glob in react_performance_checker.py**: `rglob('*.{ts,tsx}')` matched zero files (Python pathlib has no brace expansion) — added an `_iter_files` helper so the audit script actually scans the project.
+- **frontend-design contradictions**: Resolved mesh-gradient (banned vs "mandatory"), flat-design ("FAILED" vs valid choice), and "PURPLE BANNED" absolutism into intent-based guidance; removed a misplaced and incorrect "Next.js 16 next/form" section (`next/form` shipped in Next.js 15); cleared Turkish mojibake; wired the orphan `accessibility_checker.py` into the script table.
+- **api-patterns dead links**: Repointed cross-references `backend-development` → `nodejs-best-practices` and `security-hardening` → `vulnerability-scanner`; translated a leftover Turkish line.
+- **database-design**: Corrected PlanetScale "No foreign keys" — foreign key constraints have been GA since February 2024.
+- **python-patterns**: Replaced deprecated `aioredis` with `redis-py` (`redis.asyncio`).
+- **ARCHITECTURE.md**: Fixed a corrupted `## Scripts` heading character and reconciled the skill count to 45.
+
 ## [2026.5.25] - 2026-05-25
 
 ### Added
@@ -85,7 +110,7 @@ No unreleased changes.
 ## [2.0.1] - 2026-01-26
 
 ### Added
-- **Agent Flow Documentation**: Added comprehensive workflow documentation in `.agent/AGENT_FLOW.md`.
+- **Agent Flow Documentation**: Added comprehensive workflow documentation in `.agents/AGENT_FLOW.md`.
 - **Agent Routing Checklist**: Documented mandatory steps before code or design work.
 - **Socratic Gate Protocol**: Documented requirement clarification flow.
 - **Cross-Skill References**: Added cross-skill reference pattern documentation.
@@ -94,8 +119,8 @@ No unreleased changes.
 
 ### Changed
 - **Skill Consolidation**: Merged `nextjs-best-practices` and `react-patterns` into `react-best-practices`.
-- **Architecture Updates**: Enhanced `.agent/ARCHITECTURE.md` with improved flow diagrams.
-- **Rules Update**: Updated `.agent/rules/GEMINI.md` with Agent Routing Checklist.
+- **Architecture Updates**: Enhanced `.agents/ARCHITECTURE.md` with improved flow diagrams.
+- **Rules Update**: Updated `.agents/rules/GEMINI.md` with Agent Routing Checklist.
 - **Agent Updates**: Updated `frontend-specialist.md` and `qa-automation-engineer.md` with enhanced skill references and testing workflows.
 - **Frontend Design Skill**: Enhanced `frontend-design/SKILL.md` with cross-references to `web-design-guidelines`.
 

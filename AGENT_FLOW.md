@@ -140,7 +140,7 @@ Before ANY code/design work:
 | Step | Check                        | If Unchecked                             |
 | ---- | ---------------------------- | ---------------------------------------- |
 | 1    | Identify correct agent       | → Analyze request domain                 |
-| 2    | Read agent's .md file        | → Open `.agent/agent/{agent}.md`         |
+| 2    | Read agent's .md file        | → Open `.agents/agent/{agent}.md`         |
 | 3    | Announce agent               | → `🤖 Applying knowledge of @[agent]...` |
 | 4    | Load skills from frontmatter | → Check `skills:` field                  |
 
@@ -214,7 +214,7 @@ Step 1: Match Request to Skill
                     ↓
 Step 2: Load Skill Metadata
 ┌──────────────────────────────────────────┐
-│ Read: .agent/skills/api-patterns/        │
+│ Read: .agents/skills/api-patterns/        │
 │       └── SKILL.md (main instructions)   │
 └──────────────────────────────────────────┘
                     ↓
@@ -376,7 +376,7 @@ Example: "Build a full-stack e-commerce app"
 
 During Development (Quick Checks):
 ┌──────────────────────────────────────────┐
-│ python .agent/scripts/checklist.py .     │
+│ python .agents/scripts/checklist.py .     │
 ├──────────────────────────────────────────┤
 │ ✓ Security Scan (vulnerabilities)        │
 │ ✓ Code Quality (ESLint, TypeScript)      │
@@ -389,7 +389,7 @@ During Development (Quick Checks):
 
 Pre-Deployment (Full Verification):
 ┌──────────────────────────────────────────────────────┐
-│ python .agent/scripts/verify_all.py .                │
+│ python .agents/scripts/verify_all.py .                │
 │        --url http://localhost:3000                   │
 ├──────────────────────────────────────────────────────┤
 │ ✓ All Quick Checks                                   │
@@ -591,11 +591,11 @@ User Request: "Build a Next.js dashboard with authentication"
 
 ## 🔗 Quick Reference Links
 
-- **Architecture**: `.agent/ARCHITECTURE.md`
-- **Agents**: `.agent/agent/`
-- **Skills**: `.agent/skills/`
-- **Workflows**: `.agent/workflows/`
-- **Scripts**: `.agent/scripts/`
+- **Architecture**: `.agents/ARCHITECTURE.md`
+- **Agents**: `.agents/agent/`
+- **Skills**: `.agents/skills/`
+- **Workflows**: `.agents/workflows/`
+- **Scripts**: `.agents/scripts/`
 
 ---
 

@@ -53,7 +53,7 @@ $ARGUMENTS
 
 | Step | Agent | Action |
 |------|-------|--------|
-| 1 | `project-planner` | Create docs/PLAN.md |
+| 1 | `project-planner` | Create {task-slug}.md in project root |
 | 2 | (optional) `explorer-agent` | Codebase discovery if needed |
 
 > 🔴 **NO OTHER AGENTS during planning!** Only project-planner and explorer-agent.
@@ -61,9 +61,9 @@ $ARGUMENTS
 ### ⏸️ CHECKPOINT: User Approval
 
 ```
-After PLAN.md is complete, ASK:
+After {task-slug}.md is complete, ASK:
 
-"✅ Plan created: docs/PLAN.md
+"✅ Plan created: {task-slug}.md
 
 Do you approve? (Y/N)
 - Y: Start implementation
@@ -86,7 +86,7 @@ Do you approve? (Y/N)
 
 | Agent | Domain | Use When |
 |-------|--------|----------|
-| `project-planner` | Planning | Task breakdown, PLAN.md |
+| `project-planner` | Planning | Task breakdown, {task-slug}.md |
 | `explorer-agent` | Discovery | Codebase mapping |
 | `frontend-specialist` | UI/UX | React, Vue, CSS, HTML |
 | `backend-specialist` | Server | API, Node.js, Python |
@@ -126,14 +126,14 @@ Identify ALL domains this task touches:
 
 | If Plan Exists | Action |
 |----------------|--------|
-| NO `docs/PLAN.md` | → Go to PHASE 1 (planning only) |
-| YES `docs/PLAN.md` + user approved | → Go to PHASE 2 (implementation) |
+| NO `{task-slug}.md` | → Go to PHASE 1 (planning only) |
+| YES `{task-slug}.md` + user approved | → Go to PHASE 2 (implementation) |
 
 ### Step 3: Execute Based on Phase
 
 **PHASE 1 (Planning):**
 ```
-Use the project-planner agent to create PLAN.md
+Use the project-planner agent to create {task-slug}.md
 → STOP after plan is created
 → ASK user for approval
 ```
@@ -157,7 +157,7 @@ When invoking ANY subagent, you MUST include:
 
 **Example with FULL context:**
 ```
-Use the project-planner agent to create PLAN.md:
+Use the project-planner agent to create {task-slug}.md:
 
 **CONTEXT:**
 - User Request: "A social platform for students, using mock data"
@@ -165,7 +165,7 @@ Use the project-planner agent to create PLAN.md:
 - Previous Work: Orchestrator asked 6 questions, user chose all options
 - Current Plan: playful-roaming-dream.md exists in workspace with initial structure
 
-**TASK:** Create detailed PLAN.md based on ABOVE decisions. Do NOT infer from folder name.
+**TASK:** Create detailed {task-slug}.md based on ABOVE decisions. Do NOT infer from folder name.
 ```
 
 > ⚠️ **VIOLATION:** Invoking subagent without full context = subagent will make wrong assumptions!
@@ -174,8 +174,8 @@ Use the project-planner agent to create PLAN.md:
 ### Step 4: Verification (MANDATORY)
 The LAST agent must run appropriate verification scripts:
 ```bash
-python .agent/skills/vulnerability-scanner/scripts/security_scan.py .
-python .agent/skills/lint-and-validate/scripts/lint_runner.py .
+python .agents/skills/vulnerability-scanner/scripts/security_scan.py .
+python .agents/skills/lint-and-validate/scripts/lint_runner.py .
 ```
 
 ### Step 5: Synthesize Results
@@ -211,7 +211,7 @@ Combine all agent outputs into unified report.
 3. **[Agent 3]**: Finding
 
 ### Deliverables
-- [ ] PLAN.md created
+- [ ] {task-slug}.md created
 - [ ] Code implemented
 - [ ] Tests passing
 - [ ] Scripts verified

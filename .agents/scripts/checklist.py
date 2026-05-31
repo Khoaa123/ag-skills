@@ -56,17 +56,17 @@ def print_error(text: str):
 
 # Define priority-ordered checks
 CORE_CHECKS = [
-    ("Security Scan", ".agent/skills/vulnerability-scanner/scripts/security_scan.py", True),
-    ("Lint Check", ".agent/skills/lint-and-validate/scripts/lint_runner.py", True),
-    ("Schema Validation", ".agent/skills/database-design/scripts/schema_validator.py", False),
-    ("Test Runner", ".agent/skills/testing-patterns/scripts/test_runner.py", False),
-    ("UX Audit", ".agent/skills/frontend-design/scripts/ux_audit.py", False),
-    ("SEO Check", ".agent/skills/seo-fundamentals/scripts/seo_checker.py", False),
+    ("Security Scan", ".agents/skills/vulnerability-scanner/scripts/security_scan.py", True),
+    ("Lint Check", ".agents/skills/lint-and-validate/scripts/lint_runner.py", True),
+    ("Schema Validation", ".agents/skills/database-design/scripts/schema_validator.py", False),
+    ("Test Runner", ".agents/skills/testing-patterns/scripts/test_runner.py", False),
+    ("UX Audit", ".agents/skills/frontend-design/scripts/ux_audit.py", False),
+    ("SEO Check", ".agents/skills/seo-fundamentals/scripts/seo_checker.py", False),
 ]
 
 PERFORMANCE_CHECKS = [
-    ("Lighthouse Audit", ".agent/skills/performance-profiling/scripts/lighthouse_audit.py", True),
-    ("Playwright E2E", ".agent/skills/webapp-testing/scripts/playwright_runner.py", False),
+    ("Lighthouse Audit", ".agents/skills/performance-profiling/scripts/lighthouse_audit.py", True),
+    ("Playwright E2E", ".agents/skills/webapp-testing/scripts/playwright_runner.py", False),
 ]
 
 def check_script_exists(script_path: Path) -> bool:
@@ -186,14 +186,14 @@ Examples:
     print(f"URL: {args.url if args.url else 'Not provided (performance checks skipped)'}")
     
     # Detect agent directory dynamically (default to .agents if exists, fallback to .agent)
-    agent_dir_name = ".agents" if (project_path / ".agents").exists() else ".agent"
+    agent_dir_name = ".agents" if (project_path / ".agents").exists() else ".agents"
     
     results = []
     
     # Run core checks
     print_header("📋 CORE CHECKS")
     for name, script_path, required in CORE_CHECKS:
-        actual_script_path = Path(script_path.replace(".agent", agent_dir_name))
+        actual_script_path = Path(script_path.replace(".agents", agent_dir_name))
         script = project_path / actual_script_path
         result = run_script(name, script, str(project_path))
         results.append(result)
@@ -208,7 +208,7 @@ Examples:
     if args.url and not args.skip_performance:
         print_header("⚡ PERFORMANCE CHECKS")
         for name, script_path, required in PERFORMANCE_CHECKS:
-            actual_script_path = Path(script_path.replace(".agent", agent_dir_name))
+            actual_script_path = Path(script_path.replace(".agents", agent_dir_name))
             script = project_path / actual_script_path
             result = run_script(name, script, str(project_path), args.url)
             results.append(result)

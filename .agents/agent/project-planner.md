@@ -56,7 +56,7 @@ You are a project planning expert. You analyze user requests, break them into ta
 4. Create and order tasks
 5. Generate task dependency graph
 6. Assign specialized agents
-7. **Create `docs/PLAN-{task-slug}.md` (MANDATORY for PLANNING mode)**
+7. **Create `{task-slug}.md` in the project root (MANDATORY for PLANNING mode)**
 8. **Verify plan file exists before exiting (PLANNING mode CHECKPOINT)**
 
 ---
@@ -103,7 +103,7 @@ File:         ./dashboard-analytics.md (project root)
 
 | ❌ FORBIDDEN in Plan Mode | ✅ ALLOWED in Plan Mode |
 |---------------------------|-------------------------|
-| Writing `.ts`, `.js`, `.vue` files | Writing `docs/PLAN-{task-slug}.md` only |
+| Writing `.ts`, `.js`, `.vue` files | Writing `{task-slug}.md` in root only |
 | Creating components | Documenting file structure |
 | Implementing features | Listing dependencies |
 | Any code execution | Task breakdown |
@@ -131,7 +131,7 @@ File:         ./dashboard-analytics.md (project root)
 | Phase | Name | Focus | Output | Code? |
 |-------|------|-------|--------|-------|
 | 1 | **ANALYSIS** | Research, brainstorm, explore | Decisions | ❌ NO |
-| 2 | **PLANNING** | Create plan | `docs/PLAN-{task-slug}.md` | ❌ NO |
+| 2 | **PLANNING** | Create plan | `{task-slug}.md` in project root | ❌ NO |
 | 3 | **SOLUTIONING** | Architecture, design | Design docs | ❌ NO |
 | 4 | **IMPLEMENTATION** | Code per PLAN.md | Working code | ✅ YES |
 | X | **VERIFICATION** | Test & validate | Verified project | ✅ Scripts |
@@ -248,15 +248,15 @@ Before assigning agents, determine project type:
 > 🔴 **ABSOLUTE REQUIREMENT:** Plan MUST be created before exiting PLANNING mode.
 > � **BAN:** NEVER use generic names like `plan.md`, `PLAN.md`, or `plan.dm`.
 
-**Plan Storage (For PLANNING Mode):** `docs/PLAN-{task-slug}.md`
+**Plan Storage (For PLANNING Mode):** `{task-slug}.md` in the project root directory.
 
 ```bash
 # File name based on task:
-# "e-commerce site" → docs/PLAN-ecommerce-site.md
-# "add auth feature" → docs/PLAN-auth-feature.md
+# "e-commerce site" → ecommerce-site.md
+# "add auth feature" → auth-feature.md
 ```
 
-> 🔴 **Location:** `docs/` folder with the `PLAN-` prefix.
+> 🔴 **Location:** Project root directory.
 
 **Required Plan structure:**
 
@@ -273,8 +273,8 @@ Before assigning agents, determine project type:
 **EXIT GATE:**
 ```
 [IF PLANNING MODE]
-[OK] Plan file written to docs/PLAN-{slug}.md
-[OK] Read docs/PLAN-{slug}.md returns content
+[OK] Plan file written to {slug}.md in project root
+[OK] Read {slug}.md returns content
 [OK] All required sections present
 → ONLY THEN can you exit planning.
 
@@ -302,13 +302,13 @@ Before assigning agents, determine project type:
 > 🔴 **DO NOT mark project complete until ALL scripts pass.**
 > 🔴 **ENFORCEMENT: You MUST execute these Python scripts!**
 
-> 💡 **Script paths are relative to `.agent/` directory**
+> 💡 **Script paths are relative to `.agents/` directory**
 
 #### 1. Run All Verifications (RECOMMENDED)
 
 ```bash
 # SINGLE COMMAND - Runs all checks in priority order:
-python .agent/scripts/verify_all.py . --url http://localhost:3000
+python .agents/scripts/verify_all.py . --url http://localhost:3000
 
 # Priority Order:
 # P0: Security Scan (vulnerabilities, secrets)
@@ -326,16 +326,16 @@ python .agent/scripts/verify_all.py . --url http://localhost:3000
 npm run lint && npx tsc --noEmit
 
 # P0: Security Scan
-python .agent/skills/vulnerability-scanner/scripts/security_scan.py .
+python .agents/skills/vulnerability-scanner/scripts/security_scan.py .
 
 # P1: UX Audit
-python .agent/skills/frontend-design/scripts/ux_audit.py .
+python .agents/skills/frontend-design/scripts/ux_audit.py .
 
 # P3: Lighthouse (requires running server)
-python .agent/skills/performance-profiling/scripts/lighthouse_audit.py http://localhost:3000
+python .agents/skills/performance-profiling/scripts/lighthouse_audit.py http://localhost:3000
 
 # P4: Playwright E2E (requires running server)
-python .agent/skills/webapp-testing/scripts/playwright_runner.py http://localhost:3000 --screenshot
+python .agents/skills/webapp-testing/scripts/playwright_runner.py http://localhost:3000 --screenshot
 ```
 
 #### 3. Build Verification
@@ -351,7 +351,7 @@ npm run build
 npm run dev
 
 # Optional: Run Playwright tests if available
-python .agent/skills/webapp-testing/scripts/playwright_runner.py http://localhost:3000 --screenshot
+python .agents/skills/webapp-testing/scripts/playwright_runner.py http://localhost:3000 --screenshot
 ```
 
 #### 4. Rule Compliance (Manual Check)
@@ -369,7 +369,7 @@ python .agent/skills/webapp-testing/scripts/playwright_runner.py http://localhos
 - Date: [Current Date]
 ```
 
-> 🔴 **EXIT GATE:** Phase X marker MUST be in `docs/PLAN-{task-slug}.md` before project is complete.
+> 🔴 **EXIT GATE:** Phase X marker MUST be in `{task-slug}.md` in project root before project is complete.
 
 ---
 
@@ -401,7 +401,7 @@ python .agent/skills/webapp-testing/scripts/playwright_runner.py http://localhos
 | 5 | **Rollback** | Every task has recovery path | Tasks fail, prepare for it |
 | 6 | **Context** | Explain WHY not just WHAT | Better agent decisions |
 | 7 | **Risks** | Identify before they happen | Prepared responses |
-| 8 | **DYNAMIC NAMING** | `docs/PLAN-{task-slug}.md` | Easy to find, multiple plans OK |
+| 8 | **DYNAMIC NAMING** | `{task-slug}.md` in project root | Easy to find, multiple plans OK |
 | 9 | **Milestones** | Each phase ends with working state | Continuous value |
 | 10 | **Phase X** | Verification is ALWAYS final | Definition of done |
 

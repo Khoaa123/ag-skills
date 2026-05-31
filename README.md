@@ -22,7 +22,7 @@
 
 ## ⚡ Quick Start
 
-Install and initialize AG Kit to inject the `.agent/` configuration folder directly into your local project.
+Install and initialize AG Kit to inject the `.agents/` configuration folder directly into your local project.
 
 ### Method 1: On-demand Execution (Recommended)
 
@@ -41,7 +41,7 @@ ag-kit init
 
 ## 🌍 Global Shared Setup (Symlinks)
 
-If you work across multiple repositories and want to avoid duplicating the `.agent/` folder in every single project, you can centralize AG Kit and use symbolic links.
+If you work across multiple repositories and want to avoid duplicating the `.agents/` folder in every single project, you can centralize AG Kit and use symbolic links.
 
 1. **Install centrally** (e.g., to a global folder like `~/.ag-kit`):
    ```bash
@@ -52,27 +52,27 @@ If you work across multiple repositories and want to avoid duplicating the `.age
 2. **Link it locally** from inside your project root:
    - **macOS / Linux:**
      ```bash
-     ln -s ~/.ag-kit/.agent .agent
+     ln -s ~/.ag-kit/.agents .agent
      ```
    - **Windows (CMD - Run as Administrator):**
      ```cmd
-     mklink /D .agent "%USERPROFILE%\.ag-kit\.agent"
+     mklink /D .agents "%USERPROFILE%\.ag-kit\.agents"
      ```
    - **Windows (PowerShell - Run as Administrator):**
      ```powershell
-     New-Item -ItemType SymbolicLink -Path ".agent" -Target "$env:USERPROFILE\.ag-kit\.agent"
+     New-Item -ItemType SymbolicLink -Path ".agents" -Target "$env:USERPROFILE\.ag-kit\.agents"
      ```
 
 ---
 
 ## ⚠️ Important Note on `.gitignore`
 
-If you are using AI-native code editors (like **Cursor** or **Windsurf**), adding the `.agent/` directory to `.gitignore` will prevent the editor's language server from indexing the workflows, which disables autocomplete for slash commands (e.g. `/plan`, `/debug`).
+If you are using AI-native code editors (like **Cursor** or **Windsurf**), adding the `.agents/` directory to `.gitignore` will prevent the editor's language server from indexing the workflows, which disables autocomplete for slash commands (e.g. `/plan`, `/debug`).
 
 ### Recommended Solution:
-To keep `.agent/` out of your remote repository without losing editor integration:
-1. Ensure `.agent/` is **NOT** listed in your project's `.gitignore`.
-2. Add `.agent/` to your local Git exclude file: `.git/info/exclude` instead.
+To keep `.agents/` out of your remote repository without losing editor integration:
+1. Ensure `.agents/` is **NOT** listed in your project's `.gitignore`.
+2. Add `.agents/` to your local Git exclude file: `.git/info/exclude` instead.
 
 ---
 

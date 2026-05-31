@@ -9,7 +9,7 @@
 AG Kit is a modular system consisting of:
 
 - **20 Specialist Agents** - Role-based AI personas (1 major upgrade in 2026.5.13)
-- **44 Skills** - Domain-specific knowledge modules with conditional loading
+- **45 Skills** - Domain-specific knowledge modules with conditional loading
 - **13 Workflows** - Slash command procedures
 
 ---
@@ -58,7 +58,7 @@ Specialist AI personas for different domains.
 
 ---
 
-## 🧩 Skills (44)
+## 🧩 Skills (45)
 
 Modular knowledge domains that agents can load on-demand based on task context. Each skill has a `when_to_use` frontmatter field for conditional/intelligent loading.
 
@@ -240,7 +240,7 @@ allowed-tools: Read, Grep, Glob
 
 ---
 
-## � Scripts (2)
+## 🛠️ Scripts (2)
 
 Master validation scripts that orchestrate skill-level scripts.
 
@@ -255,10 +255,10 @@ Master validation scripts that orchestrate skill-level scripts.
 
 ```bash
 # Quick validation during development
-python .agent/scripts/checklist.py .
+python .agents/scripts/checklist.py .
 
 # Full verification before deployment
-python .agent/scripts/verify_all.py . --url http://localhost:3000
+python .agents/scripts/verify_all.py . --url http://localhost:3000
 ```
 
 ### What They Check
@@ -290,7 +290,7 @@ For details, see [scripts/README.md](scripts/README.md)
 | Metric              | Value                             |
 | ------------------- | --------------------------------- |
 | **Total Agents**    | 20 (1 major upgrade in 2026.5.13) |
-| **Total Skills**    | 44 (+7 new in 2026.5.13)          |
+| **Total Skills**    | 45 (+7 new in 2026.5.13)          |
 | **Total Workflows** | 13 (+2 new in 2026.5.13)          |
 | **Total Scripts**   | 2 (master) + 18 (skill-level)     |
 | **Coverage**        | ~95% web/mobile + orchestration   |

@@ -5,9 +5,9 @@ Auto Preview - AG Kit
 Manages (start/stop/status) the local development server for previewing the application.
 
 Usage:
-    python .agent/scripts/auto_preview.py start [port]
-    python .agent/scripts/auto_preview.py stop
-    python .agent/scripts/auto_preview.py status
+    python .agents/scripts/auto_preview.py start [port]
+    python .agents/scripts/auto_preview.py stop
+    python .agents/scripts/auto_preview.py status
 """
 
 import os
@@ -20,7 +20,7 @@ import subprocess
 from pathlib import Path
 
 # Detect agent directory name dynamically
-AGENT_DIR = Path(".agents") if Path(".agents").exists() else Path(".agent")
+AGENT_DIR = Path(".agents") if Path(".agents").exists() else Path(".agents")
 PID_FILE = AGENT_DIR / "preview.pid"
 LOG_FILE = AGENT_DIR / "preview.log"
 
