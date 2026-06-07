@@ -1,33 +1,37 @@
+"use client";
 
 import Link from "next/link";
+import { useI18n } from "@/i18n/provider";
 
 export default function Footer() {
+    const { t } = useI18n();
+    const f = t.footer;
     return (
         <footer className="border-t border-zinc-200 dark:border-zinc-800 mt-auto">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
                     {/* Product */}
                     <div>
-                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-4">Product</h3>
+                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-4">{f.product}</h3>
                         <ul className="space-y-3 text-sm">
                             <li>
                                 <Link href="/docs" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Documentation
+                                    {f.documentation}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/docs/agents" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Agents
+                                    {f.agents}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/docs/skills" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Skills
+                                    {f.skills}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/docs/workflows" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Workflows
+                                    {f.workflows}
                                 </Link>
                             </li>
                         </ul>
@@ -35,53 +39,53 @@ export default function Footer() {
 
                     {/* Resources */}
                     <div>
-                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-4">Resources</h3>
+                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-4">{f.resources}</h3>
                         <ul className="space-y-3 text-sm">
                             <li>
                                 <Link href="/docs/installation" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Installation
+                                    {f.installation}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/docs/cli" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    CLI Reference
+                                    {f.cliReference}
                                 </Link>
                             </li>
                             <li>
                                 <a href="https://github.com/vudovn/ag-kit" target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Examples
+                                    {f.examples}
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/vudovn/ag-kit/releases" target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Changelog
-                                </a>
+                                <Link href="/docs/changelog" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
+                                    {f.changelog}
+                                </Link>
                             </li>
                         </ul>
                     </div>
 
                     {/* Community */}
                     <div>
-                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-4">Community</h3>
+                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-4">{f.community}</h3>
                         <ul className="space-y-3 text-sm">
                             <li>
                                 <a href="https://github.com/vudovn/ag-kit" target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    GitHub
+                                    {f.github}
                                 </a>
                             </li>
                             <li>
                                 <a href="https://github.com/vudovn/ag-kit/issues" target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Issues
+                                    {f.issues}
                                 </a>
                             </li>
                             <li>
                                 <a href="https://github.com/vudovn/ag-kit/discussions" target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Discussions
+                                    {f.discussions}
                                 </a>
                             </li>
                             <li>
                                 <a href="https://github.com/vudovn/ag-kit/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Contributing
+                                    {f.contributing}
                                 </a>
                             </li>
                         </ul>
@@ -89,21 +93,21 @@ export default function Footer() {
 
                     {/* Legal */}
                     <div>
-                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-4">Legal</h3>
+                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-4">{f.legal}</h3>
                         <ul className="space-y-3 text-sm">
                             <li>
                                 <a href="https://github.com/vudovn/ag-kit/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    License
+                                    {f.license}
                                 </a>
                             </li>
                             <li>
                                 <Link href="#1" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Privacy Policy
+                                    {f.privacy}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="#1" className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-50 transition-colors">
-                                    Terms of Service
+                                    {f.terms}
                                 </Link>
                             </li>
                         </ul>
@@ -121,7 +125,7 @@ export default function Footer() {
                             rel="noopener noreferrer"
                             className="font-medium text-zinc-900 dark:text-zinc-50 hover:underline">
                             @vudovn
-                        </a>. All rights reserved.
+                        </a>. {f.rights}
                     </p>
 
                     {/* Social Links */}

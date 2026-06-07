@@ -1,39 +1,43 @@
+"use client";
+
 import Link from "next/link";
+import { useI18n } from "@/i18n/provider";
 
 export default function CLIPage() {
+    const { t } = useI18n();
     return (
         <div className="max-w-3xl">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 mb-6">
-                <Link href="/docs" className="hover:text-zinc-900 dark:hover:text-zinc-50">Docs</Link>
+                <Link href="/docs" className="hover:text-zinc-900 dark:hover:text-zinc-50">{t.cliPage.breadcrumbDocs}</Link>
                 <span>/</span>
-                <span className="text-zinc-900 dark:text-zinc-50">CLI Reference</span>
+                <span className="text-zinc-900 dark:text-zinc-50">{t.cliPage.breadcrumbCurrent}</span>
             </nav>
 
             {/* Page Header */}
             <div className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
                 <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    CLI Reference
+                    {t.cliPage.title}
                 </h1>
                 <p className="text-lg text-zinc-600 dark:text-zinc-400">
-                    Command-line interface for managing AG Kit installations.
+                    {t.cliPage.subtitle}
                 </p>
             </div>
 
             {/* Overview */}
             <section className="mb-12">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    Overview
+                    {t.cliPage.overviewTitle}
                 </h2>
                 <p className="text-base text-zinc-600 dark:text-zinc-400 mb-6">
-                    The <code className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-sm font-mono">ag-kit</code> CLI tool helps you manage AG Kit installations across your projects.
+                    {t.cliPage.overviewPa}<code className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-sm font-mono">ag-kit</code>{t.cliPage.overviewPb}
                 </p>
             </section>
 
             {/* Commands */}
             <section className="mb-12">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    Commands
+                    {t.cliPage.commandsTitle}
                 </h2>
 
                 <div className="space-y-8">
@@ -43,7 +47,7 @@ export default function CLIPage() {
                             <code className="font-mono">ag-kit init</code>
                         </h3>
                         <p className="text-base text-zinc-600 dark:text-zinc-400 mb-4">
-                            Initialize AG Kit in your project by installing the <code className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-sm font-mono">.agents</code> folder.
+                            {t.cliPage.initDescA}<code className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-sm font-mono">.agents</code>{t.cliPage.initDescB}
                         </p>
 
                         <div className="relative group mb-4">
@@ -53,11 +57,11 @@ export default function CLIPage() {
                         </div>
 
                         <div className="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
-                            <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-50 mb-2">Behavior</div>
+                            <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-50 mb-2">{t.cliPage.behaviorTitle}</div>
                             <ul className="text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
-                                <li>• Creates <code className="px-1 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 font-mono text-xs">.agents/</code> directory in current folder</li>
-                                <li>• Downloads latest templates from GitHub</li>
-                                <li>• Skips  if <code className="px-1 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 font-mono text-xs">.agents/</code> already exists (use <code className="px-1 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 font-mono text-xs">--force</code> to override)</li>
+                                <li>• {t.cliPage.initBehavior1a}<code className="px-1 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 font-mono text-xs">.agents/</code>{t.cliPage.initBehavior1b}</li>
+                                <li>• {t.cliPage.initBehavior2}</li>
+                                <li>• {t.cliPage.initBehavior3a}<code className="px-1 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 font-mono text-xs">.agents/</code>{t.cliPage.initBehavior3b}<code className="px-1 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 font-mono text-xs">--force</code>{t.cliPage.initBehavior3c}</li>
                             </ul>
                         </div>
                     </div>
@@ -68,7 +72,7 @@ export default function CLIPage() {
                             <code className="font-mono">ag-kit update</code>
                         </h3>
                         <p className="text-base text-zinc-600 dark:text-zinc-400 mb-4">
-                            Update your existing AG Kit installation to the latest version.
+                            {t.cliPage.updateDesc}
                         </p>
 
                         <div className="relative group mb-4">
@@ -79,7 +83,7 @@ export default function CLIPage() {
 
                         <div className="p-4 rounded-lg border border-amber-200 dark:border-amber-900 bg-amber-50 dark:bg-amber-950/20">
                             <p className="text-sm text-amber-900 dark:text-amber-200">
-                                <strong className="font-semibold">Warning:</strong> This will delete and replace your <code className="px-1 py-0.5 rounded bg-amber-100 dark:bg-amber-900/40 font-mono text-xs">.agents/</code> folder. Make sure to backup any custom changes.
+                                <strong className="font-semibold">{t.cliPage.updateWarningStrong}</strong>{t.cliPage.updateWarningA}<code className="px-1 py-0.5 rounded bg-amber-100 dark:bg-amber-900/40 font-mono text-xs">.agents/</code>{t.cliPage.updateWarningB}
                             </p>
                         </div>
                     </div>
@@ -90,7 +94,7 @@ export default function CLIPage() {
                             <code className="font-mono">ag-kit status</code>
                         </h3>
                         <p className="text-base text-zinc-600 dark:text-zinc-400 mb-4">
-                            Check the current installation status and version information.
+                            {t.cliPage.statusDesc}
                         </p>
 
                         <div className="relative group mb-4">
@@ -100,13 +104,13 @@ export default function CLIPage() {
                         </div>
 
                         <div className="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
-                            <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-50 mb-2">Output Includes</div>
+                            <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-50 mb-2">{t.cliPage.outputIncludesTitle}</div>
                             <ul className="text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
-                                <li>• Installation status (installed/not installed)</li>
-                                <li>• Current version</li>
-                                <li>• Agent count</li>
-                                <li>• Skill count</li>
-                                <li>• Workflow count</li>
+                                <li>• {t.cliPage.statusOut1}</li>
+                                <li>• {t.cliPage.statusOut2}</li>
+                                <li>• {t.cliPage.statusOut3}</li>
+                                <li>• {t.cliPage.statusOut4a}<code className="px-1 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 font-mono text-xs">.agents</code>{t.cliPage.statusOut4b}</li>
+                                <li>• {t.cliPage.statusOut5}</li>
                             </ul>
                         </div>
                     </div>
@@ -116,51 +120,51 @@ export default function CLIPage() {
             {/* Options */}
             <section className="mb-12">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    Options
+                    {t.cliPage.optionsTitle}
                 </h2>
                 <p className="text-base text-zinc-600 dark:text-zinc-400 mb-6">
-                    Customize CLI behavior with these options:
+                    {t.cliPage.optionsP}
                 </p>
 
                 <div className="overflow-x-auto">
                     <table className="w-full text-sm border border-zinc-200 dark:border-zinc-800">
                         <thead className="bg-zinc-50 dark:bg-zinc-900/50">
                             <tr>
-                                <th className="text-left py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-50 border-b border-zinc-200 dark:border-zinc-800">Option</th>
-                                <th className="text-left py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-50 border-b border-zinc-200 dark:border-zinc-800">Description</th>
+                                <th className="text-left py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-50 border-b border-zinc-200 dark:border-zinc-800">{t.cliPage.tableOption}</th>
+                                <th className="text-left py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-50 border-b border-zinc-200 dark:border-zinc-800">{t.cliPage.tableDescription}</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800">
                             <tr>
                                 <td className="py-3 px-4">
-                                    <code className="font-mono text-zinc-900 dark:text-zinc-50">--force</code>
+                                    <code className="font-mono text-zinc-900 dark:text-zinc-50">-f, --force</code>
                                 </td>
                                 <td className="py-3 px-4 text-zinc-600 dark:text-zinc-400">
-                                    Overwrite existing <code className="px-1 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 font-mono text-xs">.agents</code> folder
+                                    {t.cliPage.optForceA}<code className="px-1 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 font-mono text-xs">.agents</code>{t.cliPage.optForceB}<code className="px-1 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 font-mono text-xs">update</code>{t.cliPage.optForceC}
                                 </td>
                             </tr>
                             <tr>
                                 <td className="py-3 px-4">
-                                    <code className="font-mono text-zinc-900 dark:text-zinc-50">--path &lt;dir&gt;</code>
+                                    <code className="font-mono text-zinc-900 dark:text-zinc-50">-p, --path &lt;dir&gt;</code>
                                 </td>
                                 <td className="py-3 px-4 text-zinc-600 dark:text-zinc-400">
-                                    Install in specific directory instead of current folder
+                                    {t.cliPage.optPathDesc}
                                 </td>
                             </tr>
                             <tr>
                                 <td className="py-3 px-4">
-                                    <code className="font-mono text-zinc-900 dark:text-zinc-50">--branch &lt;name&gt;</code>
+                                    <code className="font-mono text-zinc-900 dark:text-zinc-50">-b, --branch &lt;name&gt;</code>
                                 </td>
                                 <td className="py-3 px-4 text-zinc-600 dark:text-zinc-400">
-                                    Use specific Git branch (default: main)
+                                    {t.cliPage.optBranchDesc}
                                 </td>
                             </tr>
                             <tr>
                                 <td className="py-3 px-4">
-                                    <code className="font-mono text-zinc-900 dark:text-zinc-50">--quiet</code>
+                                    <code className="font-mono text-zinc-900 dark:text-zinc-50">-q, --quiet</code>
                                 </td>
                                 <td className="py-3 px-4 text-zinc-600 dark:text-zinc-400">
-                                    Suppress output (useful for CI/CD pipelines)
+                                    {t.cliPage.optQuietDesc}
                                 </td>
                             </tr>
                             <tr>
@@ -168,7 +172,7 @@ export default function CLIPage() {
                                     <code className="font-mono text-zinc-900 dark:text-zinc-50">--dry-run</code>
                                 </td>
                                 <td className="py-3 px-4 text-zinc-600 dark:text-zinc-400">
-                                    Preview actions without executing
+                                    {t.cliPage.optDryRunA}<code className="px-1 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 font-mono text-xs">init</code>{t.cliPage.optDryRunB}<code className="px-1 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 font-mono text-xs">update</code>{t.cliPage.optDryRunC}
                                 </td>
                             </tr>
                         </tbody>
@@ -179,13 +183,13 @@ export default function CLIPage() {
             {/* Examples */}
             <section className="mb-12">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    Examples
+                    {t.cliPage.examplesTitle}
                 </h2>
 
                 <div className="space-y-6">
                     <div>
                         <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                            Force reinstall
+                            {t.cliPage.exForceReinstall}
                         </h3>
                         <div className="relative group">
                             <pre className="p-4 rounded-lg bg-zinc-900 dark:bg-zinc-900 overflow-x-auto border border-zinc-800 font-mono text-sm">
@@ -196,7 +200,7 @@ export default function CLIPage() {
 
                     <div>
                         <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                            Install in specific directory
+                            {t.cliPage.exInstallDir}
                         </h3>
                         <div className="relative group">
                             <pre className="p-4 rounded-lg bg-zinc-900 dark:bg-zinc-900 overflow-x-auto border border-zinc-800 font-mono text-sm">
@@ -207,7 +211,7 @@ export default function CLIPage() {
 
                     <div>
                         <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                            Use development branch
+                            {t.cliPage.exDevBranch}
                         </h3>
                         <div className="relative group">
                             <pre className="p-4 rounded-lg bg-zinc-900 dark:bg-zinc-900 overflow-x-auto border border-zinc-800 font-mono text-sm">
@@ -218,7 +222,7 @@ export default function CLIPage() {
 
                     <div>
                         <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                            Silent install for CI/CD
+                            {t.cliPage.exSilentCI}
                         </h3>
                         <div className="relative group">
                             <pre className="p-4 rounded-lg bg-zinc-900 dark:bg-zinc-900 overflow-x-auto border border-zinc-800 font-mono text-sm">
@@ -232,16 +236,16 @@ export default function CLIPage() {
             {/* Next Steps */}
             <section className="mb-12">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    Next Steps
+                    {t.cliPage.nextTitle}
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2">
                     <Link
                         href="/docs/installation"
                         className="group p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all"
                     >
-                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">Installation Guide →</h3>
+                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">{t.cliPage.installGuideArrow}</h3>
                         <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                            Full installation instructions
+                            {t.cliPage.installGuideDesc}
                         </p>
                     </Link>
                     <a
@@ -250,9 +254,9 @@ export default function CLIPage() {
                         rel="noopener noreferrer"
                         className="group p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all"
                     >
-                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">View on GitHub →</h3>
+                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">{t.cliPage.viewGithubArrow}</h3>
                         <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                            Source code and contribution guide
+                            {t.cliPage.viewGithubDesc}
                         </p>
                     </a>
                 </div>
@@ -267,7 +271,7 @@ export default function CLIPage() {
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
-                    Workflows
+                    {t.cliPage.footerWorkflows}
                 </Link>
                 <a
                     href="https://github.com/vudovn/ag-kit"

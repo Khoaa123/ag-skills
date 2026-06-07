@@ -133,12 +133,12 @@ export const docsConfig = {
                     href: "/docs/skills/clean-code",
                 },
                 {
-                    title: "React Patterns",
-                    href: "/docs/skills/react-patterns",
+                    title: "Next.js & React Expert",
+                    href: "/docs/skills/nextjs-react-expert",
                 },
                 {
-                    title: "Next.js Best Practices",
-                    href: "/docs/skills/nextjs-best-practices",
+                    title: "Node.js Best Practices",
+                    href: "/docs/skills/nodejs-best-practices",
                 },
                 {
                     title: "Tailwind Patterns",

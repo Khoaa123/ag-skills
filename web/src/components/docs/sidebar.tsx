@@ -39,6 +39,7 @@ const navSections = [
         title: 'CLI Reference',
         items: [
             { href: '/docs/cli', label: 'Commands & Options' },
+            { href: '/docs/changelog', label: 'Changelog' },
         ],
     },
 ];

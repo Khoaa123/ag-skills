@@ -1,8 +1,12 @@
+"use client";
+
 import { Lightbulb } from "lucide-react";
 import Link from "next/link";
 import workflowsData from "@/services/workflows.json";
+import { useI18n } from "@/i18n/provider";
 
 export default function WorkflowsPage() {
+    const { t } = useI18n();
     // Add default usage examples if not in JSON (since ARCHITECTURE.md didn't have usage)
     const workflows = workflowsData.map(wf => ({
         ...wf,
@@ -13,41 +17,41 @@ export default function WorkflowsPage() {
         <div className="max-w-3xl">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 mb-6">
-                <Link href="/docs" className="hover:text-zinc-900 dark:hover:text-zinc-50">Docs</Link>
+                <Link href="/docs" className="hover:text-zinc-900 dark:hover:text-zinc-50">{t.workflowsPage.breadcrumbDocs}</Link>
                 <span>/</span>
-                <span className="text-zinc-900 dark:text-zinc-50">Workflows</span>
+                <span className="text-zinc-900 dark:text-zinc-50">{t.workflowsPage.breadcrumbCurrent}</span>
             </nav>
 
             {/* Page Header */}
             <div className="mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
                 <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    Workflows
+                    {t.workflowsPage.title}
                 </h1>
                 <p className="text-lg text-zinc-600 dark:text-zinc-400">
-                    Slash command procedures for common development tasks.
+                    {t.workflowsPage.subtitle}
                 </p>
             </div>
 
             {/* What are Workflows */}
             <section className="mb-12">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    What are Workflows?
+                    {t.workflowsPage.whatTitle}
                 </h2>
                 <p className="text-base text-zinc-600 dark:text-zinc-400 mb-4">
-                    Workflows are well-defined, step-by-step procedures for achieving specific development tasks. They&apos;re invoked using slash commands and provide consistent, repeatable processes.
+                    {t.workflowsPage.whatP1}
                 </p>
                 <p className="text-base text-zinc-600 dark:text-zinc-400 mb-6">
-                    Each workflow contains specific instructions, decision points, and best practices for its domain.
+                    {t.workflowsPage.whatP2}
                 </p>
             </section>
 
             {/* How to Use */}
             <section className="mb-12">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    How to Use Workflows
+                    {t.workflowsPage.howTitle}
                 </h2>
                 <p className="text-base text-zinc-600 dark:text-zinc-400 mb-6">
-                    Simply type a slash command followed by your task description:
+                    {t.workflowsPage.howP}
                 </p>
 
                 <div className="relative group mb-6">
@@ -61,7 +65,7 @@ export default function WorkflowsPage() {
                 <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-4">
                     <p className="text-sm text-blue-900 dark:text-blue-100 mb-0">
                         <Lightbulb className="w-4 h-4 inline" />
-                        <strong className="font-semibold"> Tip:</strong> Some workflows have a <code className="px-1 py-0.5 rounded bg-blue-100 dark:bg-blue-900/40 font-mono text-xs">{'// turbo'}</code> annotation that allows auto-running safe commands without user approval.
+                        <strong className="font-semibold">{t.workflowsPage.tipStrong}</strong>{t.workflowsPage.tipTextA}<code className="px-1 py-0.5 rounded bg-blue-100 dark:bg-blue-900/40 font-mono text-xs">{'// turbo'}</code>{t.workflowsPage.tipTextB}
                     </p>
                 </div>
             </section>
@@ -69,10 +73,10 @@ export default function WorkflowsPage() {
             {/* Available Workflows */}
             <section className="mb-12">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    Available Workflows
+                    {t.workflowsPage.availableTitle}
                 </h2>
                 <p className="text-base text-zinc-600 dark:text-zinc-400 mb-6">
-                    {workflows.length} workflows covering common development scenarios:
+                    {workflows.length}{t.workflowsPage.availablePb}
                 </p>
 
                 <div className="space-y-6">
@@ -91,7 +95,7 @@ export default function WorkflowsPage() {
                             </p>
                             <div className="pt-3 border-t border-zinc-200 dark:border-zinc-800">
                                 <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-500 mb-2">
-                                    Example Usage
+                                    {t.workflowsPage.exampleUsage}
                                 </div>
                                 <code className="text-sm font-mono text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-900 px-2 py-1 rounded">
                                     {workflow.usage}
@@ -105,10 +109,10 @@ export default function WorkflowsPage() {
             {/* Creating Custom Workflows */}
             <section className="mb-12">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    Creating Custom Workflows
+                    {t.workflowsPage.customTitle}
                 </h2>
                 <p className="text-base text-zinc-600 dark:text-zinc-400 mb-6">
-                    You can create your own workflows by adding markdown files to <code className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-sm font-mono">.agents/workflows/</code>:
+                    {t.workflowsPage.customPa}<code className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-sm font-mono">.agents/workflows/</code>{t.workflowsPage.customPb}
                 </p>
 
                 <div className="relative group mb-6">
@@ -127,32 +131,32 @@ description: Deploy application to staging
                 </div>
 
                 <p className="text-base text-zinc-600 dark:text-zinc-400">
-                    Save as <code className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-sm font-mono">.agents/workflows/deploy-staging.md</code> and invoke with <code className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-sm font-mono">/deploy-staging</code>.
+                    {t.workflowsPage.customNoteA}<code className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-sm font-mono">.agents/workflows/deploy-staging.md</code>{t.workflowsPage.customNoteB}<code className="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-sm font-mono">/deploy-staging</code>{t.workflowsPage.customNoteC}
                 </p>
             </section>
 
             {/* Next Steps */}
             <section className="mb-12">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
-                    Next Steps
+                    {t.workflowsPage.nextTitle}
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2">
                     <Link
                         href="/docs/cli"
                         className="group p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all"
                     >
-                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">CLI Reference →</h3>
+                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">{t.workflowsPage.cliArrow}</h3>
                         <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                            Learn about command-line tools
+                            {t.workflowsPage.cliArrowDesc}
                         </p>
                     </Link>
                     <Link
                         href="/docs/agents"
                         className="group p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all"
                     >
-                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">Back to Agents →</h3>
+                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">{t.workflowsPage.backAgentsArrow}</h3>
                         <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                            Review specialist agents
+                            {t.workflowsPage.backAgentsArrowDesc}
                         </p>
                     </Link>
                 </div>
@@ -167,13 +171,13 @@ description: Deploy application to staging
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
-                    Skills
+                    {t.workflowsPage.footerSkills}
                 </Link>
                 <Link
                     href="/docs/cli"
                     className="text-sm font-medium text-zinc-900 dark:text-zinc-50 hover:underline flex items-center gap-1"
                 >
-                    CLI Reference
+                    {t.workflowsPage.footerCli}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>

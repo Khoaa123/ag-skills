@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Info, AlertTriangle, AlertCircle, Lightbulb } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type CalloutType = "info" | "warning" | "error" | "tip";
 
@@ -9,30 +10,29 @@ interface CalloutProps {
   children: ReactNode;
 }
 
-const calloutStyles: Record<CalloutType, { bg: string; border: string; icon: typeof Info; iconColor: string }> = {
+const calloutStyles: Record<
+  CalloutType,
+  { wrap: string; icon: typeof Info; iconColor: string }
+> = {
   info: {
-    bg: "bg-blue-50 dark:bg-blue-950/30",
-    border: "border-blue-200 dark:border-blue-800",
+    wrap: "border-info/30 bg-info/5",
     icon: Info,
-    iconColor: "text-blue-600 dark:text-blue-400",
+    iconColor: "text-info",
   },
   warning: {
-    bg: "bg-yellow-50 dark:bg-yellow-950/30",
-    border: "border-yellow-200 dark:border-yellow-800",
+    wrap: "border-warning/30 bg-warning/5",
     icon: AlertTriangle,
-    iconColor: "text-yellow-600 dark:text-yellow-400",
+    iconColor: "text-warning",
   },
   error: {
-    bg: "bg-red-50 dark:bg-red-950/30",
-    border: "border-red-200 dark:border-red-800",
+    wrap: "border-destructive/30 bg-destructive/5",
     icon: AlertCircle,
-    iconColor: "text-red-600 dark:text-red-400",
+    iconColor: "text-destructive",
   },
   tip: {
-    bg: "bg-zinc-50 dark:bg-zinc-900/50",
-    border: "border-zinc-200 dark:border-zinc-800",
+    wrap: "border-term-green/30 bg-term-green/5",
     icon: Lightbulb,
-    iconColor: "text-zinc-600 dark:text-zinc-400",
+    iconColor: "text-term-green",
   },
 };
 
@@ -41,10 +41,15 @@ export function Callout({ type = "info", title, children }: CalloutProps) {
   const Icon = styles.icon;
 
   return (
-    <div className={`${styles.bg} ${styles.border} border rounded-lg p-4 mb-4`}>
+    <div
+      className={cn(
+        "border-l-2 border rounded-r-lg rounded-l-sm p-4 mb-4",
+        styles.wrap
+      )}
+    >
       <div className="flex items-start gap-3">
-        <Icon className={`w-5 h-5 mt-0.5 shrink-0 ${styles.iconColor}`} />
-        <div className="flex-1">
+        <Icon className={cn("w-5 h-5 mt-0.5 shrink-0", styles.iconColor)} />
+        <div className="flex-1 min-w-0">
           {title && (
             <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50 mb-1">
               {title}

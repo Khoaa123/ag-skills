@@ -9,6 +9,27 @@ Starting with `2026.5.13`, this project uses calendar versioning in `YYYY.M.D` f
 
 No unreleased changes.
 
+## [2026.6.7] - 2026-06-07
+
+> Documentation website overhaul: a redesigned MDX rendering system, full multi-language support (English, Tiếng Việt, 中文, 日本語), a working table of contents, and a new in-site changelog page. This release touches only the `web/` docs site.
+
+### Added
+- **Multi-language docs (en / vi / zh / ja)**: client-side i18n with a language switcher (flag dropdown) in the header. Persists choice to localStorage + cookie and switches instantly without a reload. All UI chrome (header, footer, search, mobile menu, TOC) plus all 7 docs pages and all 10 guide examples are translated; each example page ships `content.{en,vi,zh,ja}.mdx` selected by a `LocalizedDoc` wrapper with English fallback.
+- **Changelog page** at `/docs/changelog`, rendered from `web/src/services/changelog.json` with per-section badges, linked from the sidebar and footer.
+- **Working "On This Page" table of contents**: scroll-spy TOC that builds from page headings (auto-slugging headings that lack an id) and highlights the active section.
+- **Syntax highlighting & MDX pipeline**: wired `rehype-pretty-code` (shiki), `rehype-slug`, `rehype-autolink-headings`, and `remark-gfm` into the MDX build; added `next/font` (Inter + JetBrains Mono).
+- **Follow-on-X dialog**: a one-time auto-popup (re-openable from a header button) inviting visitors to follow [@antigravitykit](https://x.com/antigravitykit).
+
+### Changed
+- **Redesigned MDX components** (terminal/dev-tool aesthetic): Terminal with window chrome, Step with connector line, Callout, FeatureGrid, ProTips, and a new StatusList component. Replaced hand-rolled `<div>` blocks in example content with these components.
+- **Neutral accent color**: docs accent now follows the foreground color (white in dark mode) instead of cyan/emerald, matching a standard docs look.
+- **Synced docs catalogs** (`skills.json`, `agents.json`, `workflows.json`) to the real repository: 45 skills, 20 agents, 13 workflows; removed phantom skill names.
+
+### Fixed
+- Heading `id`s are now forwarded through the MDX component mapping so the TOC and anchor links work.
+- Inline code no longer double-boxes fenced code blocks; lists use `list-outside`.
+- Corrected the installation page Node requirement (18+), CLI flag aliases, and the `ag-kit status` output description.
+
 ## [2026.6.2] - 2026-06-02
 
 > Full-kit accuracy audit. Reviewed every component of AG Kit — all 45 skills, 20 agents, 13 workflows, the GEMINI.md rules, and both overview docs — against verified 2026 facts (OWASP Top 10:2025, MCP spec 2025-06-18, Rust 2024 edition, Node 24 LTS). Removed dead references, fabricated numbers, internal contradictions, broken formatting, and stale date stamps. Also taught the CLI to surface update notifications from `ag-kit status`.

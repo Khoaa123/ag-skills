@@ -1,13 +1,27 @@
 import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 interface TerminalProps {
+  title?: string;
   children: ReactNode;
 }
 
-export function Terminal({ children }: TerminalProps) {
+export function Terminal({ title = "agent-session", children }: TerminalProps) {
   return (
-    <div className="bg-zinc-900 rounded-lg p-4 font-mono text-sm text-zinc-300 mb-6 overflow-x-auto">
-      {children}
+    <div className="rounded-lg border border-zinc-800 bg-[#0d0d0f] mb-6 overflow-hidden shadow-lg">
+      {/* Window chrome */}
+      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-zinc-800 bg-[#18181b]">
+        <div className="flex gap-1.5">
+          <span className="w-3 h-3 rounded-full bg-red-500/90" />
+          <span className="w-3 h-3 rounded-full bg-amber-500/90" />
+          <span className="w-3 h-3 rounded-full bg-emerald-500/90" />
+        </div>
+        <span className="ml-2 font-mono text-xs text-zinc-500">{title}</span>
+      </div>
+      {/* Body */}
+      <div className="p-4 font-mono text-sm text-zinc-300 overflow-x-auto">
+        {children}
+      </div>
     </div>
   );
 }
@@ -18,25 +32,18 @@ interface TerminalLineProps {
 }
 
 export function TerminalLine({ type = "system", children }: TerminalLineProps) {
-  const colors = {
-    user: "text-green-400",
-    agent: "text-blue-400",
-    system: "text-zinc-400",
+  const config = {
+    user: { prompt: "$", color: "text-term-green" },
+    agent: { prompt: "▸", color: "text-term-cyan" },
+    system: { prompt: "", color: "text-zinc-500" },
   };
-
-  const labels = {
-    user: "User:",
-    agent: "Agent:",
-    system: "",
-  };
+  const { prompt, color } = config[type];
 
   return (
-    <div className="mb-2">
-      {labels[type] && (
-        <span className={`${colors[type]} font-semibold`}>{labels[type]} </span>
-      )}
-      {children}
-    </div>
+    <span className="mb-2 flex gap-2">
+      {prompt && <span className={cn("font-bold shrink-0", color)}>{prompt}</span>}
+      <span className="flex-1">{children}</span>
+    </span>
   );
 }
 
@@ -48,9 +55,10 @@ interface TerminalBlockProps {
 export function TerminalBlock({ highlight, children }: TerminalBlockProps) {
   return (
     <div
-      className={`pl-4 border-l-2 ${
-        highlight ? "border-green-800" : "border-zinc-800"
-      } mb-4`}
+      className={cn(
+        "pl-4 border-l-2 mb-4",
+        highlight ? "border-term-green" : "border-zinc-800"
+      )}
     >
       {children}
     </div>

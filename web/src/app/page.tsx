@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { GithubIcon } from "lucide-react";
 import Typing from "@/components/typing";
+import { useI18n } from "@/i18n/provider";
 
 export default function Home() {
+  const { t } = useI18n();
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-white px-8 py-24 dark:bg-black sm:items-start sm:px-16 sm:py-32">
@@ -23,8 +27,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            AI agent templates with Skills, Agents, and Workflows for modern
-            coding assistants.
+            {t.home.tagline}
           </p>
           <Typing />
         </div>
@@ -37,13 +40,13 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <GithubIcon className="h-5 w-5" />
-            GitHub
+            {t.home.github}
           </a>
           <Link
             className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
             href="/docs"
           >
-            Documentation
+            {t.home.documentation}
           </Link>
         </div>
       </main>

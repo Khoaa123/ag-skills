@@ -6,27 +6,39 @@ import { usePathname } from 'next/navigation';
 import DonateDialog from '@/components/layout/header/components/donate-dialog';
 import { GithubIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useI18n } from '@/i18n/provider';
 
-const navSections = [
+type SearchKey =
+    | 'groupGettingStarted'
+    | 'groupCoreConcepts'
+    | 'cliReference'
+    | 'introduction'
+    | 'installation'
+    | 'agents'
+    | 'skills'
+    | 'workflows'
+    | 'commandsOptions';
+
+const navSections: { titleKey: SearchKey; items: { href: string; labelKey: SearchKey }[] }[] = [
     {
-        title: 'Getting Started',
+        titleKey: 'groupGettingStarted',
         items: [
-            { href: '/docs', label: 'Introduction' },
-            { href: '/docs/installation', label: 'Installation' },
+            { href: '/docs', labelKey: 'introduction' },
+            { href: '/docs/installation', labelKey: 'installation' },
         ],
     },
     {
-        title: 'Core Concepts',
+        titleKey: 'groupCoreConcepts',
         items: [
-            { href: '/docs/agents', label: 'Agents' },
-            { href: '/docs/skills', label: 'Skills' },
-            { href: '/docs/workflows', label: 'Workflows' },
+            { href: '/docs/agents', labelKey: 'agents' },
+            { href: '/docs/skills', labelKey: 'skills' },
+            { href: '/docs/workflows', labelKey: 'workflows' },
         ],
     },
     {
-        title: 'CLI Reference',
+        titleKey: 'cliReference',
         items: [
-            { href: '/docs/cli', label: 'Commands & Options' },
+            { href: '/docs/cli', labelKey: 'commandsOptions' },
         ],
     },
 ];
@@ -34,6 +46,7 @@ const navSections = [
 export default function MobileMenu() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const { t } = useI18n();
 
     return (
         <>
@@ -58,9 +71,9 @@ export default function MobileMenu() {
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
                         <nav className="space-y-6">
                             {navSections.map((section) => (
-                                <div key={section.title}>
+                                <div key={section.titleKey}>
                                     <h3 className="mb-3 text-sm font-semibold text-zinc-900 dark:text-zinc-50">
-                                        {section.title}
+                                        {t.search[section.titleKey]}
                                     </h3>
                                     <div className="space-y-1">
                                         {section.items.map((item) => {
@@ -78,7 +91,7 @@ export default function MobileMenu() {
                                                         }
                                                     `}
                                                 >
-                                                    {item.label}
+                                                    {t.search[item.labelKey]}
                                                 </Link>
                                             );
                                         })}
@@ -108,7 +121,7 @@ export default function MobileMenu() {
                                             <path d="M890.828,5.864C895.373,4.486 900.302,5.343 904.116,8.172C907.93,11.002 910.178,15.47 910.178,20.219C910.178,143.585 910.178,795.144 910.178,961.372C910.178,967.476 906.48,972.971 900.825,975.269C895.17,977.566 888.687,976.208 884.429,971.834C645.13,726.029 399.028,922.802 198.646,716.77C128.914,644.809 89.922,548.538 89.922,448.334C89.822,333.557 89.822,156.891 89.822,111.128C89.822,104.519 94.147,98.689 100.472,96.773C147.714,82.457 338.731,24.573 400.472,5.864C405.016,4.486 409.945,5.343 413.759,8.172C417.573,11.002 419.822,15.47 419.822,20.219C419.822,92.456 419.822,340.356 419.822,469.822C419.822,514.103 455.719,550 500,550L500,550C544.281,550 580.178,514.103 580.178,469.822L580.178,111.128C580.178,104.519 584.504,98.689 590.828,96.773C638.071,82.457 829.088,24.573 890.828,5.864Z" />
                                         </g>
                                         </svg>
-                                    Sponsored
+                                    {t.nav.sponsored}
                                 </Button>
                             </Link>
                         </div>

@@ -1,9 +1,4 @@
-export const metadata = {
-  title: "Example: Create New Application | AG Kit",
-  description: "Learn how to use the /create workflow to build new applications from scratch with AI-powered wizards.",
-};
-
-import { Callout, StepList, Step, Terminal, TerminalLine, TerminalBlock, ProTips, Tip } from '@/components/mdx'
+import { Callout, StepList, Step, Terminal, TerminalLine, TerminalBlock, ProTips, Tip, StatusList, StatusItem } from '@/components/mdx'
 
 # Create New Application
 
@@ -50,16 +45,10 @@ plans the architecture, and orchestrates specialist agents to build your app.
 
   <TerminalLine type="user">Y</TerminalLine>
 
-  <div className="space-y-2 pl-8 mb-4">
-    <div className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-      <span><strong>Backend:</strong> Creating store...</span>
-    </div>
-    <div className="flex items-center gap-2">
-      <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
-      <span><strong>Frontend:</strong> Building components...</span>
-    </div>
-  </div>
+  <StatusList>
+    <StatusItem status="running" label="Backend">Creating store...</StatusItem>
+    <StatusItem status="running" label="Frontend">Building components...</StatusItem>
+  </StatusList>
 
   <TerminalBlock highlight>
     <TerminalLine type="agent">**🚀 App Created!**</TerminalLine>

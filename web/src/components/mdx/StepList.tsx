@@ -8,11 +8,14 @@ interface StepProps {
 
 export function Step({ number, title, children }: StepProps) {
   return (
-    <div className="flex gap-4">
-      <div className="flex-none w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-sm">
+    <div className="relative flex gap-4 pb-8 last:pb-0 group">
+      {/* Connector line between steps */}
+      <div className="absolute left-[15px] top-8 bottom-0 w-px bg-zinc-200 dark:bg-zinc-800 group-last:hidden" />
+      {/* Step number badge */}
+      <div className="relative z-10 flex-none w-8 h-8 rounded-full border border-term-cyan/40 bg-background flex items-center justify-center text-term-cyan font-mono font-bold text-sm">
         {number}
       </div>
-      <div className="flex-1 pb-6">
+      <div className="flex-1 min-w-0 pt-0.5">
         <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mt-0 mb-2">
           {title}
         </h3>
@@ -29,5 +32,5 @@ interface StepListProps {
 }
 
 export function StepList({ children }: StepListProps) {
-  return <div className="space-y-2 mb-8">{children}</div>;
+  return <div className="mb-8">{children}</div>;
 }

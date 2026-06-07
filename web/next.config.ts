@@ -7,6 +7,27 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
 };
 
-const withMDX = createMDX({});
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [["remark-gfm"]],
+    rehypePlugins: [
+      ["rehype-slug"],
+      [
+        "rehype-pretty-code",
+        {
+          theme: "github-dark-default",
+          keepBackground: false,
+        },
+      ],
+      [
+        "rehype-autolink-headings",
+        {
+          behavior: "wrap",
+          properties: { className: ["heading-anchor"] },
+        },
+      ],
+    ],
+  },
+});
 
 export default withMDX(nextConfig);

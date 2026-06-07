@@ -1,7 +1,7 @@
 [
     {
-        "name": "react-best-practices",
-        "description": "Next.js App Router, React hooks, Server Components, performance",
+        "name": "nextjs-react-expert",
+        "description": "Next.js & React performance optimization (Vercel - 58 rules)",
         "category": "Frontend & UI"
     },
     {
@@ -16,7 +16,7 @@
     },
     {
         "name": "web-design-guidelines",
-        "description": "Professional web design standards, 50 styles, 21 palettes",
+        "description": "Web UI audit - 100+ rules for accessibility, UX, performance",
         "category": "Frontend & UI"
     },
     {
@@ -32,6 +32,11 @@
     {
         "name": "python-patterns",
         "description": "Python standards, FastAPI",
+        "category": "Backend & API"
+    },
+    {
+        "name": "rust-pro",
+        "description": "Modern Rust (2024 edition): async, systems, type system",
         "category": "Backend & API"
     },
     {
@@ -76,7 +81,7 @@
     },
     {
         "name": "vulnerability-scanner",
-        "description": "Security auditing, OWASP",
+        "description": "Security auditing, OWASP Top 10:2025",
         "category": "Security"
     },
     {
@@ -135,6 +140,46 @@
         "category": "Shell/CLI"
     },
     {
+        "name": "coordinator-mode",
+        "description": "Multi-agent orchestration with parallel workers & synthesis",
+        "category": "Orchestration & Memory"
+    },
+    {
+        "name": "memory-system",
+        "description": "Persistent cross-session memory with MEMORY.md index",
+        "category": "Orchestration & Memory"
+    },
+    {
+        "name": "context-compression",
+        "description": "Auto-compress context in long sessions",
+        "category": "Orchestration & Memory"
+    },
+    {
+        "name": "verify-changes",
+        "description": "Prove code works by running it, not just inspecting",
+        "category": "Orchestration & Memory"
+    },
+    {
+        "name": "batch-operations",
+        "description": "Multi-file pattern-based modifications",
+        "category": "Orchestration & Memory"
+    },
+    {
+        "name": "simplify-code",
+        "description": "Reduce over-engineered complexity",
+        "category": "Orchestration & Memory"
+    },
+    {
+        "name": "skillify",
+        "description": "Auto-create skills from repetitive workflows",
+        "category": "Orchestration & Memory"
+    },
+    {
+        "name": "code-review-graph",
+        "description": "Token-efficient code review via Tree-sitter AST + MCP",
+        "category": "Orchestration & Memory"
+    },
+    {
         "name": "clean-code",
         "description": "Coding standards (Global)",
         "category": "Other"
@@ -178,10 +223,5 @@
         "name": "intelligent-routing",
         "description": "Automatic agent selection and routing",
         "category": "Other"
-    },
-    {
-        "name": "rust-pro",
-        "description": "Master Rust 1.75+ with modern async patterns, advanced type system features, and production-ready systems programming.",
-        "category": "Backend & API"
     }
 ]
