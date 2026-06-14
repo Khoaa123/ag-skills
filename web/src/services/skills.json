@@ -55,6 +55,11 @@
         "category": "Cloud & Infrastructure"
     },
     {
+        "name": "observability-and-instrumentation",
+        "description": "Instrument code so production behavior is visible and diagnosable",
+        "category": "Cloud & Infrastructure"
+    },
+    {
         "name": "testing-patterns",
         "description": "Jest, Vitest, strategies",
         "category": "Testing & Quality"
@@ -77,6 +82,11 @@
     {
         "name": "lint-and-validate",
         "description": "Linting, validation",
+        "category": "Testing & Quality"
+    },
+    {
+        "name": "browser-testing-with-devtools",
+        "description": "Verify visual layouts, accessibility, performance, and behavior via DevTools",
         "category": "Testing & Quality"
     },
     {
@@ -107,6 +117,36 @@
     {
         "name": "brainstorming",
         "description": "Socratic questioning",
+        "category": "Architecture & Planning"
+    },
+    {
+        "name": "spec-driven-development",
+        "description": "Write structured specifications (PRDs) covering boundaries and stack before coding",
+        "category": "Architecture & Planning"
+    },
+    {
+        "name": "doubt-driven-development",
+        "description": "Subject non-trivial decisions to adversarial fresh-context review",
+        "category": "Architecture & Planning"
+    },
+    {
+        "name": "source-driven-development",
+        "description": "Ground implementation decisions in version-specific official documentation",
+        "category": "Architecture & Planning"
+    },
+    {
+        "name": "deprecation-and-migration",
+        "description": "Structured decision tree and process for sunsetting legacy code",
+        "category": "Architecture & Planning"
+    },
+    {
+        "name": "interview-me",
+        "description": "Interactive one-question-at-a-time interview to extract user intent",
+        "category": "Architecture & Planning"
+    },
+    {
+        "name": "incremental-implementation",
+        "description": "Implement changes in thin vertical slices with scope discipline",
         "category": "Architecture & Planning"
     },
     {

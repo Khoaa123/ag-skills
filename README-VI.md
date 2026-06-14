@@ -1,22 +1,8 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/vudovn/ag-kit/main/web/public/images/logo.png" width="128" height="128" alt="AGKIT">
-</p>
+# AG KIT & AGENT-SKILLS
 
-<h1 align="center">AG KIT</h1>
+Bộ template AI Agent đi kèm Skills, Agents, và Workflows — kết hợp giữa Antigravity-Kit và addyosmani/agent-skills. Tích hợp sẵn Coordinator Mode, Bộ nhớ Dài hạn (Persistent Memory), và Nén Ngữ cảnh (Context Compression).
 
-<p align="center">
-    Bộ template AI Agent đi kèm Skills, Agents, và Workflows — tích hợp sẵn Coordinator Mode, Bộ nhớ Dài hạn (Persistent Memory), và Nén Ngữ cảnh (Context Compression).
-</p>
-
-<div align="center">
-    <a href="https://unikorn.vn/p/antigravity-kit?ref=unikorn" target="_blank"><img src="https://unikorn.vn/api/widgets/badge/antigravity-kit?theme=dark" alt="AG Kit - Nổi bật trên Unikorn.vn" style="width: 210px; height: 54px;" width="210" height="54" /></a>
-    <a href="https://trendshift.io/repositories/21490" target="_blank"><img src="https://trendshift.io/api/badge/repositories/21490" alt="vudovn%2Fantigravity-kit | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-    <a href="https://launch.j2team.dev/products/antigravity-kit" target="_blank"><img src="https://launch.j2team.dev/badge/antigravity-kit/dark" alt="AG Kit on J2TEAM Launch" width="250" height="54" /></a>
-</div>
-
-<p align="center">
-  <strong>🇬🇧 <a href="./README.md">English Version (Bản Tiếng Anh)</a></strong>
-</p>
+🇬🇧 **[English Version (Bản Tiếng Anh)](./README.md)**
 
 ---
 
@@ -78,13 +64,13 @@ Nếu bạn đang sử dụng các trình soạn thảo mã nguồn tích hợp 
 
 ## 📦 Các thành phần đi kèm
 
-AG Kit đóng gói sẵn kho tri thức chuyên sâu cho từng domain cụ thể, các vai trò Agent chuyên biệt, và các quy trình phát triển tự động hóa tối ưu cho các công cụ lập trình AI hiện đại.
+AG Kit đóng gói sẵn kho tri thức chuyên sâu cho từng domain cụ thể, các vai trò Agent chuyên biệt, và các quy trình phát triển tự động hóa tối ưu cho các công cụ lập trình AI hiện đại, kết hợp với các kỹ năng kỹ thuật từ `agent-skills`.
 
 | Thành phần | Số lượng | Mô tả |
 | :--- | :--- | :--- |
 | **Agents** | 20 | Các chuyên gia AI độc lập (Frontend, Backend, Security, PM, QA, v.v.) |
-| **Skills** | 45 | Các mô-đun tri thức chuyên sâu đi kèm các quy tắc kích hoạt tự động |
-| **Workflows** | 13 | Quy trình tương tác tự động hóa lập trình viên (lệnh Slash) |
+| **Skills** | 53 | Các mô-đun tri thức chuyên sâu tải điều kiện (bao gồm 8 skill từ `agent-skills`) |
+| **Workflows** | 18 | Quy trình tương tác tự động hóa lập trình viên dạng lệnh Slash (bao gồm 5 workflow mới) |
 
 ---
 
@@ -109,6 +95,8 @@ Thực hiện các quy trình phát triển mã nguồn bài bản bằng cách 
 | Lệnh | Mô tả chi tiết |
 | :--- | :--- |
 | `/brainstorm` | Lên ý tưởng, phân tích kiến trúc và giải pháp tối ưu trước khi viết code |
+| `/build` | **MỚI** Triển khai code cuốn chiếu theo TDD (hỗ trợ `/build auto` chạy tự động) |
+| `/code-simplify` | **MỚI** Tối giản hóa code phức tạp dựa trên Chesterton's Fence & Rule of 500 |
 | `/coordinate` | Điều phối song song nhiều Agent chuyên gia cho các tác vụ kiểm tra phức tạp |
 | `/create` | Tạo mới một tính năng hoặc xây dựng toàn bộ ứng dụng từ đầu |
 | `/debug` | Kích hoạt quy trình gỡ lỗi chuyên sâu và có bằng chứng xác thực |
@@ -117,9 +105,12 @@ Thực hiện các quy trình phát triển mã nguồn bài bản bằng cách 
 | `/plan` | Lập kế hoạch chi tiết và tạo checklist triển khai công việc |
 | `/preview` | Khởi động, dừng hoặc kiểm tra trạng thái máy chủ xem trước cục bộ |
 | `/remember` | Ghi nhớ các quy chuẩn riêng của dự án vào bộ nhớ dài hạn |
+| `/ship` | **MỚI** Kiểm tra phát hành thông qua 3 subagent chạy song song và rollback plan |
+| `/spec` | **MỚI** Viết tài liệu đặc tả (PRD) cấu trúc trước khi code |
 | `/status` | Báo cáo chi tiết tiến độ công việc đang chạy của AI |
 | `/test` | Tự động tạo và thực thi các bộ kiểm thử (test suite) toàn diện |
-| `/verify` | Chứng minh code hoạt động thông qua chạy thực tế thay vì chỉ kiểm tra lý thuyết |
+| `/verify` | Xác minh code chạy thực tế thông qua checklist và build validation |
+| `/webperf` | **MỚI** Kiểm tra và đánh giá hiệu năng Core Web Vitals của trang Web |
 
 ---
 
@@ -140,16 +131,7 @@ AG Kit là sản phẩm nghiên cứu và phát triển độc lập trong lĩnh
 *   *Không sao chép bất kỳ mã nguồn hay file bảo mật thương mại nào.*
 *   Toàn bộ mã nguồn, cấu hình và kịch bản đều là phiên bản viết mới hoàn toàn, được phân phối dưới dạng mã nguồn mở theo giấy phép MIT.
 
----
 
-## ☕ Ủng hộ Dự án
-
-Nếu AG Kit giúp cho tiến trình lập trình với AI của bạn hiệu quả và năng suất hơn, hãy ủng hộ nhà phát triển:
-
-<a href="https://buymeacoffee.com/vudovn" target="_blank"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee" /></a>
-
-**Ngân hàng Việt Nam (MBBank QR):**<br/>
-<img src="https://img.vietqr.io/image/mbbank-0779440918-compact.jpg" alt="Donate QR" width="140" style="border-radius: 8px; margin-top: 10px;" />
 
 ---
 

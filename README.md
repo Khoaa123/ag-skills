@@ -1,22 +1,8 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/vudovn/ag-kit/main/web/public/images/logo.png" width="128" height="128" alt="AGKIT">
-</p>
+# AG KIT & AGENT-SKILLS
 
-<h1 align="center">AG KIT</h1>
+AI Agent templates with Skills, Agents, and Workflows — combining Antigravity-Kit and addyosmani/agent-skills. Features Coordinator Mode, Persistent Memory, and Context Compression.
 
-<p align="center">
-    AI Agent templates with Skills, Agents, and Workflows — featuring Coordinator Mode, Persistent Memory, and Context Compression.
-</p>
-
-<div align="center">
-    <a href="https://unikorn.vn/p/antigravity-kit?ref=unikorn" target="_blank"><img src="https://unikorn.vn/api/widgets/badge/antigravity-kit?theme=dark" alt="AG Kit - Nổi bật trên Unikorn.vn" style="width: 210px; height: 54px;" width="210" height="54" /></a>
-    <a href="https://trendshift.io/repositories/21490" target="_blank"><img src="https://trendshift.io/api/badge/repositories/21490" alt="vudovn%2Fantigravity-kit | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-    <a href="https://launch.j2team.dev/products/antigravity-kit" target="_blank"><img src="https://launch.j2team.dev/badge/antigravity-kit/dark" alt="AG Kit on J2TEAM Launch" width="250" height="54" /></a>
-</div>
-
-<p align="center">
-  <strong>🇻🇳 <a href="./README-VI.md">Tiếng Việt (Vietnamese Version)</a></strong>
-</p>
+🇻🇳 **[Tiếng Việt (Vietnamese Version)](./README-VI.md)**
 
 ---
 
@@ -78,13 +64,13 @@ To keep `.agents/` out of your remote repository without losing editor integrati
 
 ## 📦 What's Included
 
-AG Kit packages domain-specific knowledge, specialized agent personas, and automated workflows optimized for modern AI coding tools.
+AG Kit packages domain-specific knowledge, specialized agent personas, and automated workflows optimized for modern AI coding tools, now integrated with core engineering skills from `agent-skills`.
 
 | Component | Count | Description |
 | :--- | :--- | :--- |
 | **Agents** | 20 | Specialist AI personas (Frontend, Backend, Security, PM, QA, etc.) |
-| **Skills** | 45 | Domain-specific context modules with conditional loading rules |
-| **Workflows** | 13 | Pre-configured interactive developer procedures (slash commands) |
+| **Skills** | 53 | Domain-specific context modules with conditional loading rules (including 8 key skills from `agent-skills`) |
+| **Workflows** | 18 | Pre-configured interactive developer procedures (slash commands, including 5 new workflows) |
 
 ---
 
@@ -109,6 +95,8 @@ Execute structured development workflows by typing slash commands in your AI age
 | Command | Description |
 | :--- | :--- |
 | `/brainstorm` | Structured exploration of options and architecture before coding |
+| `/build` | **NEW** Implement tasks incrementally using TDD (supports `/build auto` for autonomous loops) |
+| `/code-simplify` | **NEW** Simplify code complexity using Chesterton's Fence and Rule of 500 |
 | `/coordinate` | Orchestrate multiple agents in parallel for complex reviews |
 | `/create` | Create new features or full applications from scratch |
 | `/debug` | Activate evidence-based systematic debugging |
@@ -117,9 +105,12 @@ Execute structured development workflows by typing slash commands in your AI age
 | `/plan` | Generate a structured implementation plan and checklist |
 | `/preview` | Start, stop, or check status of local preview servers |
 | `/remember` | Save custom project conventions to persistent memory |
+| `/ship` | **NEW** Release-gate checklist via parallel agents and rollback plan |
+| `/spec` | **NEW** Write a structured specification (PRD) before coding |
 | `/status` | Generate a clear status report of the agent's progress |
 | `/test` | Generate and execute comprehensive tests |
-| `/verify` | Prove code works via execution rather than simple inspection |
+| `/verify` | Prove code works via execution check lists and build validation |
+| `/webperf` | **NEW** Web performance audit via upgraded `performance-optimizer` agent |
 
 ---
 
@@ -140,16 +131,7 @@ AG Kit represents an original implementation of markdown-based prompt and rules 
 *   *No proprietary code or files were copied.*
 *   All templates, rules, and scripts are rewritten as original, open-source implementations under the MIT license.
 
----
 
-## ☕ Support the Project
-
-If AG Kit has made your AI programming sessions more productive, consider supporting the project:
-
-<a href="https://buymeacoffee.com/vudovn" target="_blank"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee" /></a>
-
-**Vietnamese Bank (MBBank QR):**<br/>
-<img src="https://img.vietqr.io/image/mbbank-0779440918-compact.jpg" alt="Donate QR" width="140" style="border-radius: 8px; margin-top: 10px;" />
 
 ---
 

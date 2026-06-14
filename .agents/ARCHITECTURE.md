@@ -9,8 +9,8 @@
 AG Kit is a modular system consisting of:
 
 - **20 Specialist Agents** - Role-based AI personas (1 major upgrade in 2026.5.13)
-- **45 Skills** - Domain-specific knowledge modules with conditional loading
-- **13 Workflows** - Slash command procedures
+- **51 Skills** - Domain-specific knowledge modules with conditional loading (updated with 6 key skills from agent-skills)
+- **14 Workflows** - Slash command procedures
 
 ---
 
@@ -88,20 +88,22 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 
 ### Cloud & Infrastructure
 
-| Skill                   | Description               |
-| ----------------------- | ------------------------- |
-| `deployment-procedures` | CI/CD, deploy workflows   |
-| `server-management`     | Infrastructure management |
+| Skill                               | Description               |
+| ----------------------------------- | ------------------------- |
+| `deployment-procedures`             | CI/CD, deploy workflows   |
+| `server-management`                 | Infrastructure management |
+| `observability-and-instrumentation` | Production instrumentation, JSON logs, RED/USE metrics |
 
 ### Testing & Quality
 
-| Skill                   | Description              |
-| ----------------------- | ------------------------ |
-| `testing-patterns`      | Jest, Vitest, strategies |
-| `webapp-testing`        | E2E, Playwright          |
-| `tdd-workflow`          | Test-driven development  |
-| `code-review-checklist` | Code review standards    |
-| `lint-and-validate`     | Linting, validation      |
+| Skill                           | Description              |
+| ------------------------------- | ------------------------ |
+| `testing-patterns`              | Jest, Vitest, strategies |
+| `webapp-testing`                | E2E, Playwright          |
+| `tdd-workflow`                  | Test-driven development  |
+| `code-review-checklist`         | Code review standards    |
+| `lint-and-validate`             | Linting, validation      |
+| `browser-testing-with-devtools` | Visual, DOM, console, & network testing via DevTools MCP |
 
 ### Security
 
@@ -112,12 +114,18 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 
 ### Architecture & Planning
 
-| Skill           | Description                |
-| --------------- | -------------------------- |
-| `app-builder`   | Full-stack app scaffolding |
-| `architecture`  | System design patterns     |
-| `plan-writing`  | Task planning, breakdown   |
-| `brainstorming` | Socratic questioning       |
+| Skill                      | Description                |
+| -------------------------- | -------------------------- |
+| `app-builder`              | Full-stack app scaffolding |
+| `architecture`             | System design patterns     |
+| `plan-writing`             | Task planning, breakdown   |
+| `brainstorming`            | Socratic questioning       |
+| `spec-driven-development`  | Write structured specifications (PRDs) before coding |
+| `doubt-driven-development` | In-flight adversarial decision review |
+| `source-driven-development`| Version-specific official doc verification & citation |
+| `deprecation-and-migration`| Structured lifecycle and sunsetting strategy for legacy code |
+| `interview-me`             | Interactive one-question-at-a-time interview to extract intent |
+| `incremental-implementation`| Implement changes in thin vertical slices with scope discipline |
 
 ### Mobile
 
@@ -174,13 +182,15 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 
 ---
 
-## 🔄 Workflows (13)
+## 🔄 Workflows (18)
 
 Slash command procedures. Invoke with `/command`.
 
 | Command          | Description                                    |
 | ---------------- | ---------------------------------------------- |
 | `/brainstorm`    | Socratic discovery                             |
+| `/build`         | **NEW** Implement tasks incrementally (TDD / auto mode) |
+| `/code-simplify` | **NEW** Simplify code using Chesterton's Fence |
 | `/coordinate`    | **NEW** Advanced multi-agent coordination      |
 | `/create`        | Create new features                            |
 | `/debug`         | Debug issues                                   |
@@ -190,9 +200,12 @@ Slash command procedures. Invoke with `/command`.
 | `/plan`          | Task breakdown                                 |
 | `/preview`       | Preview changes                                |
 | `/remember`      | **NEW** Save to persistent memory              |
+| `/ship`          | **NEW** Pre-launch release gate checklist & rollback |
+| `/spec`          | **NEW** Write structured specifications (PRDs) |
 | `/status`        | Check project status                           |
 | `/test`          | Run tests                                      |
 | `/verify`        | **NEW** Prove code works by running it         |
+| `/webperf`       | **NEW** Web performance audit                   |
 
 ---
 
@@ -283,8 +296,8 @@ For details, see [scripts/README.md](scripts/README.md)
 | Metric              | Value                             |
 | ------------------- | --------------------------------- |
 | **Total Agents**    | 20 (1 major upgrade in 2026.5.13) |
-| **Total Skills**    | 45 (+7 new in 2026.5.13)          |
-| **Total Workflows** | 13 (+2 new in 2026.5.13)          |
+| **Total Skills**    | 53 (+7 new in 2026.5.13, +8 in 2026.6.14) |
+| **Total Workflows** | 18 (+2 new in 2026.5.13, +5 in 2026.6.14)          |
 | **Total Scripts**   | 2 (master) + 16 (skill-level)     |
 | **Coverage**        | ~95% web/mobile + orchestration   |
 | **Token Efficiency**| Reduced via conditional skill loading |
