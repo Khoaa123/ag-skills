@@ -1,6 +1,6 @@
 # ag-skills
 
-A workspace configuration toolkit containing custom AI Agent templates, conditional Skills, and automated Workflows. This repository is a fork combining **antigravity-kit** and **addyosmani/agent-skills**, designed to enforce production-grade software engineering discipline on AI coding agents.
+A workspace configuration toolkit containing custom AI Agent templates, conditional Skills, and automated Workflows. This repository is a fork combining **antigravity-kit**, **addyosmani/agent-skills**, and inspired by **[DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)**, designed to enforce production-grade software engineering discipline on AI coding agents.
 
 🇻🇳 **[Tiếng Việt (Vietnamese Version)](./README-VI.md)**
 
@@ -13,7 +13,7 @@ The `.agents/` folder contains the following core components to instruct and gui
 | Component | Count | Description |
 | :--- | :--- | :--- |
 | **Agents** | 20 | Specialist AI personas (Frontend, Backend, Security, PM, QA, etc.) |
-| **Skills** | 53 | Domain-specific context modules with conditional loading rules |
+| **Skills** | 54 | Domain-specific context modules with conditional loading rules (including Ponytail minimal-code discipline) |
 | **Workflows** | 19 | Pre-configured interactive developer procedures (slash commands, including `/ship-fast`) |
 
 ---

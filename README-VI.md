@@ -1,6 +1,6 @@
 # ag-skills
 
-Bộ cấu hình không gian làm việc chứa các mẫu AI Agent chuyên biệt, Kỹ năng điều kiện (Skills) và Quy trình tự động (Workflows). Kho lưu trữ này là bản fork kết hợp giữa **antigravity-kit** và **addyosmani/agent-skills**, nhằm bắt buộc AI tuân thủ quy trình kỹ nghệ phần mềm chuyên nghiệp.
+Bộ cấu hình không gian làm việc chứa các mẫu AI Agent chuyên biệt, Kỹ năng điều kiện (Skills) và Quy trình tự động (Workflows). Kho lưu trữ này là bản fork kết hợp giữa **antigravity-kit**, **addyosmani/agent-skills** và lấy cảm hứng từ **[DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)**, nhằm bắt buộc AI tuân thủ quy trình kỹ nghệ phần mềm chuyên nghiệp.
 
 🇬🇧 **[English Version (Bản Tiếng Anh)](./README.md)**
 
@@ -13,7 +13,7 @@ Thư mục `.agents/` đóng gói sẵn các chỉ dẫn để định hình hà
 | Thành phần | Số lượng | Mô tả |
 | :--- | :--- | :--- |
 | **Agents** | 20 | Các chuyên gia AI độc lập (Frontend, Backend, Security, PM, QA, v.v.) |
-| **Skills** | 53 | Các mô-đun tri thức chuyên sâu tải có điều kiện để tối ưu hóa ngữ cảnh |
+| **Skills** | 54 | Các mô-đun tri thức chuyên sâu tải có điều kiện để tối ưu hóa ngữ cảnh (bao gồm kỹ năng tối giản code Ponytail) |
 | **Workflows** | 19 | Quy trình tương tác tự động hóa lập trình viên dạng lệnh Slash (bao gồm `/ship-fast`) |
 
 ---

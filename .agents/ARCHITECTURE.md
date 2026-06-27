@@ -163,6 +163,7 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 | `verify-changes`          | Prove code works by running it, not just inspecting         |
 | `batch-operations`        | Multi-file pattern-based modifications                      |
 | `simplify-code`           | Reduce over-engineered complexity                           |
+| `ponytail`                | Lazy Senior Dev decision ladder - minimal code & YAGNI       |
 | `skillify`                | Auto-create skills from repetitive workflows                |
 | `code-review-graph`       | Token-efficient code review via Tree-sitter AST + MCP       |
 
